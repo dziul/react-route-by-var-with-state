@@ -1,14 +1,10 @@
 import React, { useMemo } from "react";
 
-import {
-  useLocation,
-  Route as RouteRouterDom,
-  RouteProps as RouterDomRouteProps
-} from "react-router-dom";
+import { useLocation, Route } from "react-router-dom";
 
 import { RouteProps, RouteStateProps } from "./types";
 
-const Route: React.FC<RouteProps> = ({
+const RouteComponent: React.FC<RouteProps> = ({
   children,
   state: stateFromComponent,
   ...rest
@@ -23,7 +19,7 @@ const Route: React.FC<RouteProps> = ({
   }, [stateFromComponent, location.state]);
 
   return (
-    <RouteRouterDom
+    <Route
       {...rest}
       location={{
         ...location,
@@ -36,4 +32,4 @@ const Route: React.FC<RouteProps> = ({
   );
 };
 
-export default Route;
+export default RouteComponent;

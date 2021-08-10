@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-
 import { RouteProps as RouterDomRouteProps } from "react-router-dom";
 
 export interface RouteStateCoreProps {
@@ -9,7 +8,16 @@ export interface RouteStateCoreProps {
 export type RouteStateProps = Partial<RouteStateCoreProps>;
 
 export interface RouteProps<S = RouteStateProps>
-  extends Omit<RouterDomRouteProps, "component" | "children" | "path"> {
+  extends Omit<
+    RouterDomRouteProps,
+    | "component"
+    | "children"
+    | "path"
+    | "render"
+    | "strict"
+    | "sensitive"
+    | "location"
+  > {
   path: string;
   state?: S;
 }
